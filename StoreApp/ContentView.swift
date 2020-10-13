@@ -8,10 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @EnvironmentObject var data: AppData
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Button(action: {
+                self.data.counter += 1
+            }, label: {
+                Text("Update")
+            })
+            Text("First Screen Counter")
+            Text("\(data.counter)")
+                .font(.largeTitle)
+        }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
